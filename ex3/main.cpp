@@ -1,7 +1,10 @@
 #include <iostream>
+#include <vector>
+#include <string>
 #include "Base.h"
 #include "Derived1.h"
 #include "Derived2.h"
+#include "my_max.hpp"
 
 using namespace std;
 
@@ -28,8 +31,35 @@ void black(Base &b, size_t index)
     func();
 }
 
+void test()
+{
+    int a[] = {1,2,233,4,6,5};
+    
+    print_list(a, a + 6, " ");
+    cout << endl;
+    
+    my_max(a, a + 6) = 0;
+    
+    print_list(a, a + 6, " ");
+    cout << endl;
+    
+    vector<string> b = {"twd2", "sxkdz", "fb", "zzZ"};
+    print_list(b.begin(), b.end(), "\n");
+    cout << endl;
+    
+    my_max(b.begin(), b.end()) = "666";
+    string x = my_max(b.begin(), b.end());
+    
+    print_list(b.begin(), b.end(), "\n");
+    cout << endl;
+    
+    cout << x << endl;
+}
+
 int main()
 {
+    test();
+    
     Base b;
     Derived1 d1;
     Derived2 d2;
