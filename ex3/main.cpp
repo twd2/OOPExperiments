@@ -17,6 +17,7 @@ void foo(Base &b)
 void bar(Base b)
 {
     b.Print();
+    b.Print2();
 }
 
 void black(Base &b, size_t index)
@@ -85,12 +86,20 @@ int main()
     
     Derived2 *p3 = reinterpret_cast<Derived2*>(&d1);
     cout << p3 << endl;
-    p3->Print();
     
+    // cout << "Calling p3->Print()" << endl;
+    // p3->Print(); // fault on gcc version 5.2.1 20151010 (Ubuntu 5.2.1-22ubuntu2) 
+    
+    cout << "Calling d2.AnotherPrint()" << endl;
     d2.AnotherPrint();
+    
+    cout << "Calling p3->AnotherPrint()" << endl;
     p3->AnotherPrint();
     
+    cout << "Calling d2.AnotherVirtual()" << endl;
     d2.AnotherVirtual();
+    
+    // cout << "Calling p3->AnotherVirtual()" << endl;
     // p3->AnotherVirtual(); // segmentation fault
     
     return 0;
