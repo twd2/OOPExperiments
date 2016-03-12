@@ -10,9 +10,15 @@ class Derived2
 private:
     int private_int = 233;
 public:
+    Derived2()
+    {
+        my_num = 0xDE2;
+    }
+    
     void Print() override;
     void AnotherPrint();
     virtual void AnotherVirtual();
+    void PrintNumberVirtual() override;
 };
 
 #endif // _DEVIRED2_H_

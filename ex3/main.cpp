@@ -12,12 +12,16 @@ void foo(Base &b)
 {
     b.Print();
     b.Print2();
+    b.PrintNumber();
+    b.PrintNumberVirtual();
 }
 
 void bar(Base b)
 {
     b.Print();
     b.Print2();
+    b.PrintNumber();
+    b.PrintNumberVirtual();
 }
 
 void black(Base &b, size_t index)
@@ -65,13 +69,35 @@ int main()
     Derived1 d1;
     Derived2 d2;
     
+    b.PrintNumber();
+    b.PrintNumberVirtual();
+    cout << endl;
+    
+    d1.PrintNumber();
+    d1.PrintNumberVirtual();
+    cout << endl;
+    
+    d2.PrintNumber();
+    d2.PrintNumberVirtual();
+    cout << endl;
+    
     foo(b);
+    cout << endl;
+    
     foo(d1);
+    cout << endl;
+    
     foo(d2);
+    cout << endl;
     
     bar(b);
+    cout << endl;
+    
     bar(d1);
+    cout << endl;
+    
     bar(d2);
+    cout << endl;
     
     for (auto i : {0, 1})
     {
@@ -88,7 +114,7 @@ int main()
     cout << p3 << endl;
     
     // cout << "Calling p3->Print()" << endl;
-    // p3->Print(); // fault on gcc version 5.2.1 20151010 (Ubuntu 5.2.1-22ubuntu2) 
+    // p3->Print(); // segmentation fault on gcc version 5.2.1 20151010 (Ubuntu 5.2.1-22ubuntu2) 
     
     cout << "Calling d2.AnotherPrint()" << endl;
     d2.AnotherPrint();

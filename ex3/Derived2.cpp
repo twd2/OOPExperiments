@@ -14,3 +14,8 @@ void Derived2::AnotherVirtual()
 {
     std::cout << "Number from Derived2: " << private_int << std::endl;
 }
+
+void Derived2::PrintNumberVirtual()
+{
+    std::cout << "Derived2::PrintNumVirtual(), Num: " << std::hex << my_num << std::endl;
+}
