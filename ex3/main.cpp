@@ -69,14 +69,17 @@ int main()
     Derived1 d1;
     Derived2 d2;
     
+    b.Print2();
     b.PrintNumber();
     b.PrintNumberVirtual();
     cout << endl;
     
+    d1.Print2();
     d1.PrintNumber();
     d1.PrintNumberVirtual();
     cout << endl;
     
+    d2.Print2();
     d2.PrintNumber();
     d2.PrintNumberVirtual();
     cout << endl;

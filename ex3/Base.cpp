@@ -7,7 +7,7 @@ void Base::Print()
 
 void Base::Print2()
 {
-    std::cout << "Hello from Base! (2)" << std::endl;
+    std::cout << "Hello from Base! (2) " << std::hex << my_num << std::endl;
 }
 
 void Base::PrintNumber()
