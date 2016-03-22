@@ -1,4 +1,4 @@
-EXPERIMENTS := $(shell ls -d ex*)
+EXPERIMENTS := $(shell ls -F | grep "/$$" | sed "s/\/$$//")
 
 .PHONY: all
 all:
@@ -27,6 +27,6 @@ test: all
 		echo '```' > OUTPUT.md; \
 		./main | tee -a OUTPUT.md; \
 		echo '```' >> OUTPUT.md; \
-		echo =======================; \
+		echo ==========`echo $$ex | sed "s/./=/g"`==========; \
 		popd; \
 	done
