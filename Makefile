@@ -15,6 +15,7 @@ clean:
 	do \
 		pushd $$ex; \
 		make clean; \
+		rm OUTPUT*.md; \
 		popd; \
 	done
 
@@ -22,11 +23,12 @@ clean:
 test: all
 	for ex in $(EXPERIMENTS); \
 	do \
+		OUTPUT_FILE=OUTPUT_`uname -ms | sed "s/ /_/g"`.md; \
 		pushd $$ex; \
 		echo ==========$$ex==========; \
-		echo '```' > OUTPUT.md; \
-		./main | tee -a OUTPUT.md; \
-		echo '```' >> OUTPUT.md; \
+		echo '```' > $$OUTPUT_FILE; \
+		./main | tee -a $$OUTPUT_FILE; \
+		echo '```' >> $$OUTPUT_FILE; \
 		echo ==========`echo $$ex | sed "s/./=/g"`==========; \
 		popd; \
 	done
