@@ -1,3 +1,4 @@
+SHELL = /bin/bash
 EXPERIMENTS := $(shell ls -F | grep "/$$" | sed "s/\/$$//")
 
 .PHONY: all

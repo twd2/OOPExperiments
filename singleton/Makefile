@@ -6,7 +6,7 @@ OBJECTS := $(patsubst %.cpp, %.o, $(SOURCES))
 all: main
 
 main: main.o $(OBJECTS)
-	g++ -o $@ $^
+	g++ -o $@ $^ -lpthread
 
 main.o: main.cpp $(HEADERS)
 	g++ -g -Wall -std=c++11 -o $@ -c $<
