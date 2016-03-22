@@ -16,7 +16,6 @@ clean:
 	do \
 		pushd $$ex; \
 		make clean; \
-		rm OUTPUT*.md; \
 		popd; \
 	done
 
