@@ -4,7 +4,7 @@
 #include <iostream>
 #include <typeinfo>
 
-template <typename T, typename U, template <typename V, typename W> typename TEMP>
+template <typename T, typename U, template <typename V, typename W> class TEMP>
 class temp3
 {
 private:
@@ -14,7 +14,7 @@ public:
     temp3();
 };
 
-template <typename T, typename U, template <typename V, typename W> typename TEMP>
+template <typename T, typename U, template <typename V, typename W> class TEMP>
 temp3<T, U, TEMP>::temp3()
     : tTU(), tUT()
 {
