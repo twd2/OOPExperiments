@@ -30,4 +30,5 @@
 .DS_Store
 *.DS_Store
 *~
-main*
+main.o
+main
