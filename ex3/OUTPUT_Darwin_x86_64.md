@@ -57,38 +57,38 @@ Hello from Base! (2) de2
 Base::PrintNum(), Num: de2
 Base::PrintNumVirtual(), Num: de2
 
-Address of object 0x7fff5b417a80
-Address of virtual table 0x1047ec140
-Address of virtual function #0 0x1047ead50
+Address of object 0x7fff54d3aa80
+Address of virtual table 0x10aec9140
+Address of virtual function #0 0x10aec7d50
 Calling it.
 Hello from Base!
-Address of object 0x7fff5b417a70
-Address of virtual table 0x1047ec180
-Address of virtual function #0 0x1047eb030
+Address of object 0x7fff54d3aa70
+Address of virtual table 0x10aec9180
+Address of virtual function #0 0x10aec8030
 Calling it.
 Hello from Derived1!
-Address of object 0x7fff5b417a60
-Address of virtual table 0x1047ec1d0
-Address of virtual function #0 0x1047eb190
+Address of object 0x7fff54d3aa60
+Address of virtual table 0x10aec91d0
+Address of virtual function #0 0x10aec8190
 Calling it.
 Hello from Derived2!
-Address of object 0x7fff5b417a80
-Address of virtual table 0x1047ec140
-Address of virtual function #1 0x1047eadf0
+Address of object 0x7fff54d3aa80
+Address of virtual table 0x10aec9140
+Address of virtual function #1 0x10aec7df0
 Calling it.
-Hello from Base! (2) 797832f8
-Address of object 0x7fff5b417a70
-Address of virtual table 0x1047ec180
-Address of virtual function #1 0x1047eadf0
+Hello from Base! (2) 7cbf82f8
+Address of object 0x7fff54d3aa70
+Address of virtual table 0x10aec9180
+Address of virtual function #1 0x10aec7df0
 Calling it.
-Hello from Base! (2) 797832f8
-Address of object 0x7fff5b417a60
-Address of virtual table 0x1047ec1d0
-Address of virtual function #1 0x1047eadf0
+Hello from Base! (2) 7cbf82f8
+Address of object 0x7fff54d3aa60
+Address of virtual table 0x10aec91d0
+Address of virtual function #1 0x10aec7df0
 Calling it.
-Hello from Base! (2) 797832f8
+Hello from Base! (2) 7cbf82f8
 0x0
-0x7fff5b417a70
+0x7fff54d3aa70
 Calling d2.AnotherPrint()
 Goodbye from Derived2! e9
 Calling p3->AnotherPrint()

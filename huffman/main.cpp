@@ -12,6 +12,24 @@ void printMap(std::map<char, std::string> &m)
     }
 }
 
+void encode_string(const string &str)
+{
+    cout << "encoding: " << str << endl;
+    size_t *freq = huffman_getfreq((const unsigned char*)str.c_str(), str.length());
+    auto *root = huffman_encode(freq, 256);
+    // root->Print("");
+    auto m = root->ToMap();
+    printMap(m);
+    string code;
+    for (auto ch : str)
+    {
+        code += m[ch];
+    }
+    cout << code << endl;
+    delete root;
+    delete [] freq;
+}
+
 int main()
 {
     while (true)
@@ -22,20 +40,8 @@ int main()
         {
             break;
         }
-        size_t *freq = huffman_getfreq((const unsigned char*)s.c_str(), s.length());
-        auto *root = huffman_encode(freq, 256);
-        // root->Print("");
-        auto m = root->ToMap();
-        printMap(m);
-        string code;
-        for (auto ch : s)
-        {
-            code += m[ch];
-        }
-        cout << code << endl;
-        delete root;
-        delete [] freq;
+        encode_string(s);
     }
-    
+    encode_string("aaaaaaabbbbbbbbbbbbbbbbbbccccdde");
     return 0;
 }
