@@ -1,8 +1,10 @@
 #ifndef _HUFFMAN_H_
 #define _HUFFMAN_H_
 
+#include <cstddef>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include "huffman_node.h"
 
 typedef unsigned char huffman_byte;
