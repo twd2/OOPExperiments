@@ -5,8 +5,10 @@
 #include <vector>
 #include "huffman_node.h"
 
+typedef unsigned char huffman_byte;
+
 template <typename T>
-size_t binsearch(const std::vector<T> &v, T tofind)
+size_t _binsearch(const std::vector<T> &v, T tofind)
 {
     size_t left = 0, right = v.size() - 1;
     
@@ -36,6 +38,13 @@ size_t binsearch(const std::vector<T> &v, T tofind)
     return -1;
 }
 
-huffman_node *huffman_encode(const char *buffer, size_t size);
+template <typename T>
+bool _compptr(T *a, T *b)
+{
+    return *a < *b;
+}
+
+size_t *huffman_getfreq(const huffman_byte *const buffer, size_t size);
+huffman_node *huffman_encode(const size_t *const freq, size_t size);
 
 #endif // _HUFFMAN_H_

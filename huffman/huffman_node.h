@@ -9,10 +9,12 @@ class huffman_node;
 
 #include "huffman.h"
 
+typedef unsigned char huffman_byte;
+
 class huffman_node
 {
 public:
-    char ch = '\0';
+    huffman_byte ch = 0;
     huffman_node *left = nullptr, *right = nullptr;
     
     ~huffman_node()
@@ -37,7 +39,7 @@ public:
     bool operator>=(const huffman_node &b) const;
     void Print(std::string prefix);
     
-    friend huffman_node *huffman_encode(const char*, size_t);
+    friend huffman_node *huffman_encode(const size_t *const, size_t);
     
 private:
     size_t weight = 0;
