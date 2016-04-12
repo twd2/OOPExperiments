@@ -3,6 +3,8 @@ SOURCES := $(shell ls *.cpp)
 HEADERS := $(shell ls *.h *.hpp)
 OBJECTS := $(patsubst %.cpp, %.o, $(SOURCES))
 
+CC_FLAGS = -g -fPIC -Wall -std=c++11
+
 ifeq ($(shell uname),Linux)
 	DSO_POSTFIX = so
 else
@@ -19,13 +21,13 @@ endif
 all: $(PROJECT).$(DSO_POSTFIX)
 
 $(PROJECT).$(DSO_POSTFIX): $(PROJECT).o $(OBJECTS)
-	g++ -shared -o $@ $^ -lpthread
+	g++ -shared -fPIC -o $@ $^ -lpthread
 
 $(PROJECT).o: $(PROJECT).cpp $(HEADERS)
-	g++ -g -Wall -std=c++11 -o $@ -c $<
+	g++ $(CC_FLAGS) -o $@ -c $<
 
 %.o: %.cpp %.h
-	g++ -g -Wall -std=c++11 -o $@ -c $<
+	g++ $(CC_FLAGS) -o $@ -c $<
 
 .PHONY: clean
 clean:

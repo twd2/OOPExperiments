@@ -8,34 +8,34 @@
 23	23	2	
 
 creating foo
-Foo(char) 0x249cc20
+Foo(char) 0xa59c20
 
 creating foo2
-Foo(const Foo&&) src=0x249cc20
+Foo(const Foo&&) src=0xa59c20
 
 creating foo3
-Foo(const Foo&) 0x249cc70, src=0x249cc20
+Foo(const Foo&) 0xa59c70, src=0xa59c20
 
 creating foo4
 mkfoo()
-Foo() 0x249ccc0
+Foo() 0xa59cc0
 exiting mkfoo()
 
 creating foo5
-Foo() 0x249cd10
-operator=(const Foo&) left=0x249cd10, right=0x249cc20
+Foo() 0xa59d10
+operator=(const Foo&) left=0xa59d10, right=0xa59c20
 
 creating foo6
-Foo() 0x249cd60
+Foo() 0xa59d60
 mkfoo()
-Foo() 0x249cdb0
+Foo() 0xa59db0
 exiting mkfoo()
-operator=(const Foo&&) left=0x249cd60, right=0x249cdb0
-~Foo() 0x249cd60
+operator=(const Foo&&) left=0xa59d60, right=0xa59db0
+~Foo() 0xa59d60
 
 creating foo7
-Foo() 0x249cd60
-operator=(const Foo&&) left=0x249cd60, right=0x249cc20
+Foo() 0xa59d60
+operator=(const Foo&&) left=0xa59d60, right=0xa59c20
 
 foo: 
 (empty)
@@ -100,11 +100,11 @@ foo7:
 00 00 00 00 00 00 00 00 
 00 00 00 00 00 00 00 00 
 
-~Foo() 0x249cc20
-~Foo() 0x249cdb0
-~Foo() 0x249cd10
-~Foo() 0x249ccc0
-~Foo() 0x249cc70
-~Foo() 0x249cd60
+~Foo() 0xa59c20
+~Foo() 0xa59db0
+~Foo() 0xa59d10
+~Foo() 0xa59cc0
+~Foo() 0xa59c70
+~Foo() 0xa59d60
 ~Foo() 0
 ```
