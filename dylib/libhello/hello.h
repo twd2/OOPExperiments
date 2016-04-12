@@ -9,6 +9,13 @@ class Hello
 {
 public:
     void Print();
+    virtual void Foo();
+};
+
+class Derived : public Hello
+{
+public:
+    virtual void Foo();
 };
 
 #endif 

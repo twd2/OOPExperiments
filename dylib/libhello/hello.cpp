@@ -9,3 +9,13 @@ void Hello::Print()
 {
     std::cout << "hello, class" << std::endl;
 }
+
+void Hello::Foo()
+{
+    std::cout << "Hello::Foo" << std::endl;
+}
+
+void Derived::Foo()
+{
+    std::cout << "Derived::Foo" << std::endl;
+}
