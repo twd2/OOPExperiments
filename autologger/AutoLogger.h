@@ -11,22 +11,30 @@ class AutoLogger
 private:
     static std::mutex mtx;
     std::string name;
+    std::ostream &os;
+    
 public:
     AutoLogger(std::string name)
-        : name(name)
+        : name(name), os(std::cout)
     {
-        PrintLog("BEGIN");
+        Log("BEGIN");
+    }
+
+    AutoLogger(std::string name, std::ostream &os)
+        : name(name), os(os)
+    {
+        Log("BEGIN");
     }
 
     ~AutoLogger()
     {
-        PrintLog("END");
+        Log("END");
     }
-private:
-    void PrintLog(std::string info)
+    
+    void Log(std::string info)
     {
         std::unique_lock<std::mutex> lck(mtx);
-        std::cout << "[Thread " << std::this_thread::get_id() << "] " << name << " " << info << std::endl;
+        os << "[Thread " << std::this_thread::get_id() << "] " << name << " " << info << std::endl;
     }
 };
 

@@ -16,13 +16,13 @@ void bar(int n)
 
 int main()
 {
-    AutoLogger l("main");
+    AutoLogger l("main", cerr);
     thread t1(foo, 10), t2(bar, 20);
     
     t1.join();
     
     {
-        AutoLogger l1("block");
+        AutoLogger l1("block", cerr);
         cout << "hello, world" << endl;
     }
     
