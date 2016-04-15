@@ -57,22 +57,22 @@ Hello from Base! (2) de2
 Base::PrintNum(), Num: de2
 Base::PrintNumVirtual(), Num: de2
 
-Address of object 0x7ffd04e26070
+Address of object 0x7fff3447e090
 Address of virtual table 0x402998
 Address of virtual function #0 0x4021b0
 Calling it.
 Hello from Base!
-Address of object 0x7ffd04e26080
+Address of object 0x7fff3447e0a0
 Address of virtual table 0x402a20
 Address of virtual function #0 0x402440
 Calling it.
 Hello from Derived1!
-Address of object 0x7ffd04e26090
+Address of object 0x7fff3447e0b0
 Address of virtual table 0x402ae0
 Address of virtual function #0 0x402570
 Calling it.
 Hello from Derived2!
-Address of object 0x7ffd04e26070
+Address of object 0x7fff3447e090
 Address of virtual table 0x402998
 Address of virtual function #1 0x402230
 Calling it.
