@@ -7,8 +7,8 @@ sxkdz
 fb
 zzZ
 
-[DEBUG]: N9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEE
-[DEBUG]: N9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEE
+[DEBUG]: N9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEE
+[DEBUG]: N9__gnu_cxx17__normal_iteratorIPSsSt6vectorISsSaISsEEEE
 twd2
 sxkdz
 fb
@@ -57,23 +57,42 @@ Hello from Base! (2) de2
 Base::PrintNum(), Num: de2
 Base::PrintNumVirtual(), Num: de2
 
-Address of object 0x7fff4faa9ec0
-Address of virtual table 0x402998
-Address of virtual function #0 0x4021b0
+Address of object 0x7fcdc9f8
+Address of virtual table 0x402c30
+Address of virtual function #0 0x4022bc
 Calling it.
 Hello from Base!
-Address of object 0x7fff4faa9ed0
-Address of virtual table 0x402a20
-Address of virtual function #0 0x402440
+Address of object 0x7fcdc9e4
+Address of virtual table 0x402ca0
+Address of virtual function #0 0x402500
 Calling it.
 Hello from Derived1!
-Address of object 0x7fff4faa9ee0
-Address of virtual table 0x402ae0
-Address of virtual function #0 0x402570
+Address of object 0x7fcdc9d8
+Address of virtual table 0x402d40
+Address of virtual function #0 0x40269c
 Calling it.
 Hello from Derived2!
-Address of object 0x7fff4faa9ec0
-Address of virtual table 0x402998
-Address of virtual function #1 0x402230
+Address of object 0x7fcdc9f8
+Address of virtual table 0x402c30
+Address of virtual function #1 0x4021ec
 Calling it.
+Hello from Base! (2) 0
+Address of object 0x7fcdc9e4
+Address of virtual table 0x402ca0
+Address of virtual function #1 0x4021ec
+Calling it.
+Hello from Base! (2) 0
+Address of object 0x7fcdc9d8
+Address of virtual table 0x402d40
+Address of virtual function #1 0x4021ec
+Calling it.
+Hello from Base! (2) 0
+0
+0x7fcdc9e4
+Calling d2.AnotherPrint()
+Goodbye from Derived2! e9
+Calling p3->AnotherPrint()
+Goodbye from Derived2! de1
+Calling d2.AnotherVirtual()
+Number from Derived2: e9
 ```

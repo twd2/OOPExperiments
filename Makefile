@@ -27,7 +27,7 @@ test: all
 		pushd $$ex; \
 		echo ==========$$ex==========; \
 		echo '```' > $$OUTPUT_FILE; \
-		./main < /dev/null | tee -a $$OUTPUT_FILE; \
+		./main < /dev/null 2>&1 | tee -a $$OUTPUT_FILE; \
 		echo '```' >> $$OUTPUT_FILE; \
 		echo ==========`echo $$ex | sed "s/./=/g"`==========; \
 		popd; \
