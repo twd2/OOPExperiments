@@ -3,7 +3,7 @@ include config.make
 ifdef DEBUG
 DBG = -g
 else
-DBG = -O2 -D__NO_INLINE__
+DBG = -O2 -D__NO_INLINE__ # walkaround a bug of MinGW
 endif
 
 CC_FLAGS = $(DBG) -Wall -std=c++11

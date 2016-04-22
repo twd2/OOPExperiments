@@ -6,19 +6,20 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <memory>
 #include "lodepng.h"
-
 
 #ifdef _WIN32
 #include <Windows.h>
-//#include <strsafe.h>
 #else
 #include <dirent.h>
 #endif
 
+#include "Image.h"
+
 std::vector<std::string> GetFileNames(const std::string &strDir);
 bool EndsWith(const std::string &fullString, const std::string &ending);
 
-std::vector<unsigned char> ReadPNG(const std::string &filename, unsigned int &width, unsigned int &height);
+Image ReadPNG(const std::string &filename);
 
 #endif 

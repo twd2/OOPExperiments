@@ -32,8 +32,7 @@ std::vector<std::string> GetFileNames(const std::string &strDir)
     dwError = GetLastError();
     if (dwError != ERROR_NO_MORE_FILES) 
     {
-        std::cerr << "FindFirstFile error" << std::endl;
-        return vFileDirList;
+        throw std::string("FindFirstFile error");
     }
     FindClose(hFind);
     
@@ -64,11 +63,12 @@ bool EndsWith(const std::string &fullString, const std::string &ending)
     }
 }
 
-std::vector<unsigned char> ReadPNG(const std::string &filename, unsigned int &width, unsigned int &height)
+Image ReadPNG(const std::string &filename)
 {
-    std::vector<unsigned char> image;
+    std::shared_ptr<std::vector<unsigned char> > image(new std::vector<unsigned char>());
 
-    unsigned int error = lodepng::decode(image, width, height, filename.c_str(), LCT_RGB);
+    unsigned int width, height;
+    unsigned int error = lodepng::decode(*image, width, height, filename.c_str(), LCT_RGB);
 
     if (error) 
     {
@@ -77,5 +77,5 @@ std::vector<unsigned char> ReadPNG(const std::string &filename, unsigned int &wi
         throw ss.str();
     }
     
-    return image;
+    return Image(image, width, height, width, height);
 }

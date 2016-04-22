@@ -4,9 +4,11 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
+#include <map>
 #include "Utils.h"
 #include "Image.h"
-#include "BruteforceStrategy.h"
+#include "TemplateMatchingStrategy.h"
 
 using namespace std;
 

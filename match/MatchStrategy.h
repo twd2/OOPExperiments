@@ -6,7 +6,7 @@
 class MatchStrategy
 {
 public:
-    virtual double Match(const Image&, const Image&) = 0;
+    virtual double Match(Image&, Image&) = 0;
 };
 
 #endif 
