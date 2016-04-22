@@ -5,16 +5,11 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include "lodepng.h"
 
 std::vector<std::string> GetFileNames(const std::string &strDir);
 bool EndsWith(const std::string &fullString, const std::string &ending);
 
-template <typename T>
-std::string operator+(const std::string &a, const T &b)
-{
-    std::stringstream ss;
-    ss << a << b;
-    return ss.str();
-}
+std::vector<unsigned char> ReadPNG(const std::string &filename, unsigned int &width, unsigned int &height);
 
 #endif 

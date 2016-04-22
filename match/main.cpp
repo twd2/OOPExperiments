@@ -1,43 +1,44 @@
 #include "main.h"
 
-vector<unsigned char> ReadPNG(const string &filename, unsigned int &width, unsigned int &height)
-{
-    vector<unsigned char> image;
-
-    unsigned int error = lodepng::decode(image, width, height, filename.c_str(), LCT_RGB);
-
-    if (error) 
-    {
-        stringstream ss;
-        ss << "decoder error " << error << ": " << lodepng_error_text(error);
-        throw ss.str();
-    }
-    
-    return image;
-}
-
 int main()
 {
-    cout << string("hello, ") + 22;
     try
     {
-        auto f = GetFileNames("testcases");
+        auto cases = GetFileNames("testcases");
+        auto wants = GetFileNames("pic");
         
-        for (auto filename : f)
+        string casefn = "testcases/darken.png";//cases[3];
+        
+        for (string &filename : wants)
         {
-            if (EndsWith(filename, ".png"))
-                cout << filename << endl;
-        }
-        cout << endl;
-        
-        string filename;
-        cin >> filename;
-        
-        unsigned int w, h;
-        auto v = ReadPNG(filename, w, h);
-        
-        cout << "Read " << w << "x" << h << endl;
-        cout << v.size() / w / h * 8 << " bits per pixel" << endl;
+            if (!EndsWith(filename, ".png"))
+            {
+                continue;
+            }
+            
+            unsigned int ww, hw, wc, hc;
+            auto vw = ReadPNG(filename, ww, hw),
+                 vc = ReadPNG(casefn, wc, hc);
+            Image imgW(vw, ww, hw);
+            
+            BruteforceStrategy bfs;
+            double m = -1.0;
+            
+            for (int oy = 0; oy < 10; ++oy)
+            {
+                for (int ox = 0; ox < 10; ++ox)
+                {
+                    Image imgC(vc, wc, hc, ww, hw, ox, oy);
+                    double cm = bfs.Match(imgC, imgW);
+                    if (m < 0 || cm < m)
+                    {
+                        m = cm;
+                    }
+                }
+            }
+            
+            cout << filename << " " << m << endl;
+        } 
     }
     catch (string err)
     {

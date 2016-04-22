@@ -70,3 +70,19 @@ bool EndsWith(const std::string &fullString, const std::string &ending)
         return false;
     }
 }
+
+std::vector<unsigned char> ReadPNG(const std::string &filename, unsigned int &width, unsigned int &height)
+{
+    std::vector<unsigned char> image;
+
+    unsigned int error = lodepng::decode(image, width, height, filename.c_str(), LCT_RGB);
+
+    if (error) 
+    {
+        std::stringstream ss;
+        ss << "decoder error " << error << ": " << lodepng_error_text(error);
+        throw ss.str();
+    }
+    
+    return image;
+}
