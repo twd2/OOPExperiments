@@ -1,5 +1,12 @@
 #include "Utils.h"
 
+#ifdef _WIN32
+#include <Windows.h>
+#include <strsafe.h>
+#else
+#include <dirent.h>
+#endif
+
 std::vector<std::string> GetFileNames(const std::string &strDir)
 {
     std::vector<std::string> vFileDirList;
@@ -7,7 +14,7 @@ std::vector<std::string> GetFileNames(const std::string &strDir)
     #ifdef _WIN32
     WIN32_FIND_DATAA ffd;
     //LARGE_INTEGER filesize;
-    std::string szDir;
+    string szDir;
     //size_t length_of_arg;
     HANDLE hFind = INVALID_HANDLE_VALUE;
     DWORD dwError = 0;
@@ -32,7 +39,7 @@ std::vector<std::string> GetFileNames(const std::string &strDir)
     dwError = GetLastError();
     if (dwError != ERROR_NO_MORE_FILES) 
     {
-        std::cerr << "FindFirstFile error" << std::endl;
+        cout<<"FindFirstFile error"<<endl;
         return vFileDirList;
     }
     FindClose(hFind);

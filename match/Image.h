@@ -2,10 +2,6 @@
 #define _IMAGE_H_
 
 #include <vector>
-#include <cstddef>
-
-using std::size_t;
-using std::ptrdiff_t;
 
 #define CHANNEL_R 0
 #define CHANNEL_G 1

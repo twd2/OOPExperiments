@@ -1,14 +1,8 @@
 include config.make
 
-ifdef DEBUG
-DBG = -g
-else
-DBG = -O2 -D__NO_INLINE__
-endif
-
-CC_FLAGS = $(DBG) -Wall -std=c++11
+CC_FLAGS = -g -Wall -std=c++11
 LD_FLAGS =
-LD_LIBS = -lm
+LD_LIBS =
 
 .PHONY: all
 all: main
