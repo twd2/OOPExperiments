@@ -3,6 +3,9 @@
 
 #include "MatchStrategy.h"
 #include <cmath>
+#include <cstddef>
+using std::size_t;
+using std::ptrdiff_t;
 
 class BruteforceStrategy : public MatchStrategy
 {

@@ -9,11 +9,11 @@ auto my_max(T begin, T end)
     -> decltype(*begin)
 {
     std::cout << "[DEBUG]: " << typeid(T).name() << std::endl;
-    typename std::remove_reference<decltype(*begin)>::type *m = &(*begin);
+    T m = begin;
     for (T i = begin; i != end; ++i)
     {
         if (*i > *m)
-            m = &(*i);
+            m = i;
     }
     return *m;
 }

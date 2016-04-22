@@ -4,8 +4,17 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <iostream>
 #include <sstream>
 #include "lodepng.h"
+
+
+#ifdef _WIN32
+#include <Windows.h>
+//#include <strsafe.h>
+#else
+#include <dirent.h>
+#endif
 
 std::vector<std::string> GetFileNames(const std::string &strDir);
 bool EndsWith(const std::string &fullString, const std::string &ending);

@@ -7,9 +7,9 @@ double BruteforceStrategy::Match(const Image &src, const Image &wanted)
     {
         for (size_t x = 0; x < wanted.Width; ++x)
         {
-            diff += fabs(src(x, y, CHANNEL_R) - wanted(x, y, CHANNEL_R)) + 
-                    fabs(src(x, y, CHANNEL_G) - wanted(x, y, CHANNEL_G)) + 
-                    fabs(src(x, y, CHANNEL_B) - wanted(x, y, CHANNEL_B));
+            diff += std::abs(src(x, y, CHANNEL_R) - wanted(x, y, CHANNEL_R)) + 
+                    std::abs(src(x, y, CHANNEL_G) - wanted(x, y, CHANNEL_G)) + 
+                    std::abs(src(x, y, CHANNEL_B) - wanted(x, y, CHANNEL_B));
             count += 1.0;
         }
     }
