@@ -16,5 +16,4 @@ public:
 protected:
     virtual double matchSameSize(const Image&, const Image&);
 };
-
 #endif // _TEMPLATEMATCHINGSTRATEGY_H_
