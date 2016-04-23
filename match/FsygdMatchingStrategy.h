@@ -1,10 +1,7 @@
-#ifndef _TEMPLATEMATCHINGSTRATEGY_H_
-#define _TEMPLATEMATCHINGSTRATEGY_H_
+#ifndef _FSYGDMATCHINGSTRATEGY_H_
+#define _FSYGDMATCHINGSTRATEGY_H_
 
 #include "TemplateMatchingStrategy.h"
-#include <cmath>
-#include <cstddef>
-#include <iostream>
 
 using std::size_t;
 using std::ptrdiff_t;
