@@ -9,6 +9,8 @@
 #include "Utils.h"
 #include "Image.h"
 #include "TemplateMatchingStrategy.h"
+#include "FsygdMatchingStrategy.h"
+#include "wuhzMatchingStrategy.h"
 
 using namespace std;
 

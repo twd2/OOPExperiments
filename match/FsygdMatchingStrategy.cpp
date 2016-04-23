@@ -9,11 +9,11 @@ double FsygdMatchingStrategy::matchSameSize(const Image &input, const Image &tem
     {
         for (size_t x = 0; x < temp.Width; ++x)
         {
-        	double diff_R = std::abs(input(x, y, CHANNEL_R) - temp(x, y, CHANNEL_R));
-        	double diff_G = std::abs(input(x, y, CHANNEL_G) - temp(x, y, CHANNEL_G));
-        	double diff_B = std::abs(input(x, y, CHANNEL_B) - temp(x, y, CHANNEL_B));
-            delta_diff = (diff_R+diff_G+diff_B-std::max(std::max(diff_R, diff_G), diff_B))*1.5;
-            delta_diff = std::min(delta_diff, diff_R+diff_G+diff_B);
+            double diff_R = std::abs(input(x, y, CHANNEL_R) - temp(x, y, CHANNEL_R));
+            double diff_G = std::abs(input(x, y, CHANNEL_G) - temp(x, y, CHANNEL_G));
+            double diff_B = std::abs(input(x, y, CHANNEL_B) - temp(x, y, CHANNEL_B));
+            delta_diff = (diff_R + diff_G + diff_B - std::max(std::max(diff_R, diff_G), diff_B)) * 3 / 2;
+            delta_diff = std::min(delta_diff, diff_R + diff_G + diff_B);
             diff += delta_diff;
             count += 1.0;
         }
