@@ -2,7 +2,7 @@
 
 double wuhzMatchingStrategy::matchSameSize(const Image &input, const Image &temp)
 {
-    double count_three_dim[4] = {0}, diff_three_dim[4] = {0};
+    double count_three_dim[2] = {0}, diff_three_dim[2] = {0};
     for (size_t y = 0; y < temp.Height; ++y)
     {
         for (size_t x = 0; x < temp.Width; ++x)
@@ -27,35 +27,25 @@ double wuhzMatchingStrategy::matchSameSize(const Image &input, const Image &temp
             temporary_diff = std::min(temporary_diff, temporary_mindouble * 3 / 2);
             
             // divide into 4 blocks
-            if (y < (temp.Height / 2) && x < (temp.Width / 2))
+            if (y < (temp.Height / 2))
             {
-                diff_three_dim[0] += sqrt(temporary_diff);
+                diff_three_dim[0] += temporary_diff;
                 count_three_dim[0] += 1.0;
             }
-            else if (y < (temp.Height / 2) && x >= (temp.Width / 2))
+            else if (y >= (temp.Height / 2) && y < (temp.Height))
             {
-                diff_three_dim[1] += sqrt(temporary_diff);
+                diff_three_dim[1] += temporary_diff;
                 count_three_dim[1] += 1.0;
-            }
-            else if (y >= (temp.Height / 2) && x < (temp.Width / 2))
-            {
-                diff_three_dim[2] += sqrt(temporary_diff);
-                count_three_dim[2] += 1.0;
-            }
-            else if (y >= (temp.Height / 2) && x >= (temp.Width / 2))
-            {
-                diff_three_dim[3] += sqrt(temporary_diff);
-                count_three_dim[3] += 1.0;
             }
         }
     }
     
-    double wanted_diff = 10000000;
-    for (size_t i = 0; i < 4; i++)
+    double wanted_diff = -10;
+    for (size_t i = 0; i < 2; i++)
     {
-        diff_three_dim[i] /= count_three_dim[i]; // normalize
-        if(diff_three_dim[i] < wanted_diff)
+		diff_three_dim[i] /= count_three_dim[i]; // normalize
+        if(wanted_diff < 0 || diff_three_dim[i] < wanted_diff)
             wanted_diff = diff_three_dim[i];
     }
-    return wanted_diff;
+    return sqrt(wanted_diff);
 }
