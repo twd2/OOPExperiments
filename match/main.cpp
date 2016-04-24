@@ -23,7 +23,7 @@ void match(Image &input, vector<pair<string, Image> > &templates, size_t row, si
                     minDiff = currentMatch;
                 }
             }
-            cout << minImage << "(" << minDiff << ")" << " ";
+            cout << minImage /* << "(" << minDiff << ")" */ << " " << flush;
         }
         cout << endl;
     }
@@ -55,10 +55,10 @@ int main()
         
         size_t m, n;
         
-        cerr << "请输入排列方式(ex. 3 5 for 3 rows and 5 columns): ";
+        cerr << "Format(ex. 3 5 for 3 rows and 5 columns): ";
         cin >> m >> n;
         
-        auto caseFilenames = GetFileNames("testcases");
+        /*auto caseFilenames = GetFileNames("testcases");
         
         for (string &filename : caseFilenames)
         {
@@ -82,7 +82,7 @@ int main()
             
             cout << "wuhz:" << endl;
             match(src, templates, m, n, shared_ptr<MatchStrategy>(new wuhzMatchingStrategy()));
-        }
+        }*/
         
         string caseFilename;
         
@@ -96,18 +96,19 @@ int main()
         }
         
         Image src = ReadPNG(caseFilename);
+        
+        shared_ptr<MatchStrategy> tms(new TemplateMatchingStrategy()), fms(new FsygdMatchingStrategy()), wms(new wuhzMatchingStrategy());
+        
+        shared_ptr<MixedStrategy> ms(new MixedStrategy());
+        ms->push_back(make_pair(2.0, tms));
+        ms->push_back(make_pair(1.0, fms));
+        ms->push_back(make_pair(1.0, wms));
 
-        cout << "Histogram:" << endl;
-        match(src, templates, m, n, shared_ptr<MatchStrategy>(new HistogramStrategy()));
+        // cout << "Mixed:" << endl;
+        // match(src, templates, m, n, shared_ptr<MatchStrategy>(new HistogramStrategy()));
 
-        cout << "twd2:" << endl;
+        // cout << "twd2:" << endl;
         match(src, templates, m, n, shared_ptr<MatchStrategy>(new TemplateMatchingStrategy()));
-        
-        cout << "fsygd:" << endl;
-        match(src, templates, m, n, shared_ptr<MatchStrategy>(new FsygdMatchingStrategy()));
-        
-        cout << "wuhz:" << endl;
-        match(src, templates, m, n, shared_ptr<MatchStrategy>(new wuhzMatchingStrategy()));
     }
     catch (string err)
     {

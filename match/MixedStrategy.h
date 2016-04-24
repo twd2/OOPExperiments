@@ -4,7 +4,7 @@
 #include "MatchStrategy.h"
 #include <vector>
 
-class MixedStrategy : public MatchStrategy, public std::vector<std::pair<double, MatchStrategy&> >
+class MixedStrategy : public MatchStrategy, public std::vector<std::pair<double, std::shared_ptr<MatchStrategy> > >
 {
 public:
     double Match(Image&, Image&) override;

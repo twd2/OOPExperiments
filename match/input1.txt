@@ -1,2 +1,0 @@
-testcases/image1.png
-3 5

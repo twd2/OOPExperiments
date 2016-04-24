@@ -12,6 +12,7 @@
 #include "FsygdMatchingStrategy.h"
 #include "wuhzMatchingStrategy.h"
 #include "HistogramStrategy.h"
+#include "MixedStrategy.h"
 
 using namespace std;
 
