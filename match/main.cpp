@@ -71,6 +71,9 @@ int main()
             
             Image src = ReadPNG(filename);
 
+            cout << "Histogram:" << endl;
+            match(src, templates, m, n, shared_ptr<MatchStrategy>(new HistogramStrategy()));
+            
             cout << "twd2:" << endl;
             match(src, templates, m, n, shared_ptr<MatchStrategy>(new TemplateMatchingStrategy()));
             
@@ -84,6 +87,7 @@ int main()
         string caseFilename;
         
         cerr << "Input image filename [testcases/image20.png]: ";
+        getline(cin, caseFilename); // eat
         getline(cin, caseFilename);
         
         if (caseFilename == "")
@@ -92,6 +96,9 @@ int main()
         }
         
         Image src = ReadPNG(caseFilename);
+
+        cout << "Histogram:" << endl;
+        match(src, templates, m, n, shared_ptr<MatchStrategy>(new HistogramStrategy()));
 
         cout << "twd2:" << endl;
         match(src, templates, m, n, shared_ptr<MatchStrategy>(new TemplateMatchingStrategy()));

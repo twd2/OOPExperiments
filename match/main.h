@@ -11,6 +11,7 @@
 #include "TemplateMatchingStrategy.h"
 #include "FsygdMatchingStrategy.h"
 #include "wuhzMatchingStrategy.h"
+#include "HistogramStrategy.h"
 
 using namespace std;
 

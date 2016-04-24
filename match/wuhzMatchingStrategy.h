@@ -6,6 +6,6 @@
 class wuhzMatchingStrategy: public TemplateMatchingStrategy
 {
 protected:
-    double matchSameSize(const Image&, const Image&);
+    double matchSameSize(const Image&, const Image&) override;
 };
 #endif
