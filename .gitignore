@@ -32,3 +32,4 @@ main
 *.DS_Store
 *~
 *.d
+*.f
