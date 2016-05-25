@@ -6,13 +6,13 @@ OBJECTS := $(patsubst %.cpp, %.o, $(SOURCES))
 all: main
 
 main: main.o $(OBJECTS)
-	g++ -o $@ $^ -lpthread
+	$(CXX) -o $@ $^ -lpthread
 
 main.o: main.cpp $(HEADERS)
-	g++ -g -Wall -std=c++11 -o $@ -c $<
+	$(CXX) -g -Wall -std=c++11 -o $@ -c $<
 
 %.o: %.cpp %.h
-	g++ -g -Wall -std=c++11 -o $@ -c $<
+	$(CXX) -g -Wall -std=c++11 -o $@ -c $<
 
 .PHONY: clean
 clean:

@@ -14,13 +14,13 @@ LD_LIBS = -lm
 all: main
 
 main: main.o $(OBJECTS)
-	g++ $(LD_FLAGS) -o $@ $^ $(LD_LIBS)
+	$(CXX) $(LD_FLAGS) -o $@ $^ $(LD_LIBS)
 
 main.o: main.cpp $(HEADERS)
-	g++ $(CC_FLAGS) -o $@ -c $<
+	$(CXX) $(CC_FLAGS) -o $@ -c $<
 
 %.o: %.cpp %.h
-	g++ $(CC_FLAGS) -o $@ -c $<
+	$(CXX) $(CC_FLAGS) -o $@ -c $<
 
 .PHONY: clean
 clean:

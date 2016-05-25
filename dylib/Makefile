@@ -8,14 +8,14 @@ LD_LIBS = -lhello
 all: libhello main
 
 main: main.o $(OBJECTS)
-	g++ $(LD_FLAGS) -o $@ $^ $(LD_LIBS)
+	$(CXX) $(LD_FLAGS) -o $@ $^ $(LD_LIBS)
 	$(CP) libhello$(SLASH)libhello.$(DSO_POSTFIX) .
 
 main.o: main.cpp $(HEADERS)
-	g++ $(CC_FLAGS) -o $@ -c $<
+	$(CXX) $(CC_FLAGS) -o $@ -c $<
 
 %.o: %.cpp %.h
-	g++ $(CC_FLAGS) -o $@ -c $<
+	$(CXX) $(CC_FLAGS) -o $@ -c $<
 
 .PHONY: libhello
 libhello:

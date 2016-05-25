@@ -2,13 +2,13 @@
 all: main
 
 main: main.o foobar.o
-	g++ -o $@ $^
+	$(CXX) -o $@ $^
 
 main.o: main.cpp foobar.h
-	g++ -Wall -O2 -std=c++11 -o $@ -c $<
+	$(CXX) -Wall -O2 -std=c++11 -o $@ -c $<
 
 foobar.o: foobar.cpp foobar.h
-	g++ -Wall -O2 -std=c++11 -o $@ -c $<
+	$(CXX) -Wall -O2 -std=c++11 -o $@ -c $<
 
 .PHONY: clean
 clean:

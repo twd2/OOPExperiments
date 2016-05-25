@@ -8,13 +8,13 @@ CC_FLAGS = -g -fPIC -Wall -std=c++11
 all: $(PROJECT).$(DSO_POSTFIX)
 
 $(PROJECT).$(DSO_POSTFIX): $(PROJECT).o $(OBJECTS)
-	g++ -shared -fPIC -o $@ $^
+	$(CXX) -shared -fPIC -o $@ $^
 
 $(PROJECT).o: $(PROJECT).cpp $(HEADERS)
-	g++ $(CC_FLAGS) -o $@ -c $<
+	$(CXX) $(CC_FLAGS) -o $@ -c $<
 
 %.o: %.cpp %.h
-	g++ $(CC_FLAGS) -o $@ -c $<
+	$(CXX) $(CC_FLAGS) -o $@ -c $<
 
 .PHONY: clean
 clean:
