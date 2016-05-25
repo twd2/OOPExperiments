@@ -37,8 +37,6 @@ public:
     }
 };
 
-#endif // _LOG_H_
-
 template <typename T>
 Log &Log::operator<<(const T &v)
 {
@@ -51,3 +49,5 @@ Log &Log::operator<<(const T &v)
 
 template <>
 Log &Log::operator<<(const level &v);
+
+#endif // _LOG_H_
