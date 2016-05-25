@@ -1,4 +1,4 @@
-# OOP Experiments
+# OOP Experiments [![Build Status](https://travis-ci.org/twd2/OOPExperiments.svg?branch=master)](https://travis-ci.org/twd2/OOPExperiments)
 
 Experiments of object-oriented programming course.
 
