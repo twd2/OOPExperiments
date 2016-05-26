@@ -11,7 +11,7 @@ private:
     const std::string name;
     const std::size_t age;
 public:
-    Member(std::string name, std::size_t age)
+    Member(const std::string &name, const std::size_t &age)
         : name(name), age(age)
     {
 
