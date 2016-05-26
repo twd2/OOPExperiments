@@ -8,6 +8,7 @@
 class sentence_format
 {
 public:
+    virtual ~sentence_format() = default;
     virtual sentences parse(std::istream &ins) = 0;
     virtual void write(const sentences &sents, std::ostream &outs) = 0;
 };
