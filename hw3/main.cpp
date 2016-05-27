@@ -26,7 +26,7 @@ int main()
     Notation notation_paper;
     string file_name;
     cin >> file_name;
-    notation_paper.load(file_name.c_str());
+    notation_paper.load(file_name.c_str()); // load notation from file
     conduct(fan_list, 5, notation_paper);
     return 0;
 }
